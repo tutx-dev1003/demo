@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 - Open Model</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <button class="modal">Open Modal</button>
+    </div>
+    <div class="modal__box">
+      <div class="modal__content">
+        <div class="box__header">
+          <p>Welcome to My Block</p>
+          <p class="modal__box__close">X</p>
+        </div>
+        <div class="box__content">
+          <h2>Modal</h2>
+          <p>Đây là phần body của modal</p>
+          <p>No comment</p>
+        </div>
+        <div class="box__footer">
+          <button class="modal__box__close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const open__modal = document.querySelector(".modal");
+      const close__modal = document.querySelectorAll(".modal__box__close");
+      const open__modal__box = document.querySelector(".modal__box");
+      const stop__modal__content = document.querySelector(".modal__content");
+
+      // function showModal() {
+      //   open__modal__box.style.visibility = "visible";
+      //   stop__modal__content.style.animation = "modalBoxFadeIn ease-in 0.6s";
+
+      // }
+
+      // function closeModal() {
+      //   open__modal__box.style.visibility = "hidden";
+      //   stop__modal__content.style.animation = "none";
+
+      // }
+
+      // for (var i = 0; i < close__modal.length; i++) {
+      //   close__modal[i].addEventListener("click", closeModal);
+      // }
+
+      // open__modal.addEventListener("click", showModal);
+      // open__modal__box.addEventListener("click", closeModal);
+      // stop__modal__content.addEventListener("click", function (e) {
+      //   e.stopPropagation();
+      // });
+
+      function showModal() {
+        open__modal__box.classList.add("open");
+      }
+      function closeModal() {
+        open__modal__box.classList.remove("open");
+      }
+
+      for (var close of close__modal) {
+        /* loop array close__modal => lay duoc 2 gia tri, 2 gia tri do duoc luu vao bien close */
+        close.addEventListener("click", closeModal);
+      }
+
+      open__modal.addEventListener("click", showModal);
+
+      open__modal__box.addEventListener("click", closeModal);
+      stop__modal__content.addEventListener("click", function(e){
+        e.stopPropagation();
+      })
+
+
+
+    </script>
+  </body>
+</html>
